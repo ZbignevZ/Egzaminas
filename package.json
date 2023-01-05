@@ -17,6 +17,9 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
-        "swiper": "^8.4.2"
+        "swiper": "^8.4.2",
+        "vue-loader": "^17.0.1"
     }
+    
 }
+

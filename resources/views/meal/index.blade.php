@@ -46,7 +46,11 @@
                         <li class="list-group-item">
                             <div class="movies-list">
                                 <div class="content">
-                                    <h2><span>Title: </span>{{$meal->title}}</h2>
+                                    @if($meal->getPhotos()->count())
+                                    {{-- <h5><a href="{{$meal->lastImageUrl()}}"><img src="{{$meal->lastImageUrl()}}" alt="pic" width="60" height="50" target="_BLANK">Photos: [{{$meal->getPhotos()->count()}}]</a></h5> --}}
+                                    <h5><a href="{{$meal->lastImageUrl()}}"><img src="{{$meal->lastImageUrl()}}" alt="pic" width="60" height="50" target="_BLANK"></a></h5>
+                                    @endif
+                                    <h2><span>Title: </span>{{$meal->title}}</h2>  
                                     <h4><span>Price: </span>{{$meal->price}}</h4>
                                     <h5>
                                         <span>Restaurant: </span>
@@ -54,9 +58,7 @@
                                             {{$meal->getRestaurant->title}}
                                         </a>
                                     </h5>
-                                    @if($meal->getPhotos()->count())
-                                    <h5><a href="{{$meal->lastImageUrl()}}"><img src="{{$meal->lastImageUrl()}}" alt="pic" width="60" height="50" target="_BLANK">Photos: [{{$meal->getPhotos()->count()}}]</a></h5>
-                                    @endif
+                                  
                                 </div>
                                 <div class="buttons">
                                     <a href="{{route('m_show', $meal)}}" class="btn btn-info">Show</a>
